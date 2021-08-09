@@ -2,11 +2,21 @@ h1{
     text-align: center;
     color: rgb(0, 0, 0);
 }
-.pixel{
-    background-color: #B6D7A8; 
+.pixel{ 
+    background-color: cyan;
     height:20px; 
     width:20px;
+    position: absolute;
 }
+
+.pixelrow{
+
+}
+
+.pixelcol{
+
+}
+
 #gameboard{
     background-color: darkblue;
     width: 400px;
