@@ -1,17 +1,16 @@
 initialize();
 
-
-function delay() {
-    setTimeout(initialize, 3000);
-  }
-
 function initialize(){
+  for (let i = 1; i<=400; i++){
     var div = document.createElement('div');
-    div.className = 'pixel';
-    
     var gameboardDiv = document.getElementById("gameboard");
     gameboardDiv.appendChild(div);
+    div.className = 'pixel';
+    
+    for (let x = 0; x<260 ; x++)
+    div.style.top = x;
+    for (let y = 0; y<169; y++)
+    div.style.left = y
 
-     for (let r = 0; r<150 ; r++)
-        div.style.left = r;
+  }
 }
