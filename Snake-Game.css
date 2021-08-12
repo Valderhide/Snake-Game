@@ -3,16 +3,16 @@ h1{
     color: rgb(0, 0, 0);
 }
 .pixel{ 
-    background-color: cyan;
+    background-color:#B6D7A8;
     height:20px; 
     width:20px;
     position: absolute;
+    border:1px solid black;
 }
 
 #gameboard{
     position: relative;
-    background-color: darkblue;
+    margin: auto;
     width: 400px;
     height: 400px;
-  margin: auto;
 }
