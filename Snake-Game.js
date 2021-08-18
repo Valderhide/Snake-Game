@@ -30,8 +30,8 @@ function initializeSnake(){
 }
 
 function initializeFood(){
-gameboard[Math.floor((Math.random() * 20 ))][Math.floor((Math.random() * 20 ))].style.backgroundColor = "black";
-  
+  var food = gameboard[Math.floor((Math.random() * 20 ))][Math.floor((Math.random() * 20 ))].style.backgroundColor = "black";
+  return (snake.includes(food)) ? generateRandom(min, max) : food;
 }
 
 
