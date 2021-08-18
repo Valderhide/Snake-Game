@@ -2,7 +2,7 @@ const ROW_SIZE = 20;
 const COLUMN_SIZE = 20;
 const PIXEL_WIDTH = 20;
 var gameboard;
-var snake = [[0,0],[0,1],[0,2],[0,3]];
+var snake = [[9,9],[9,10],[9,11],[9,12]];
 initialize();
 
 
@@ -23,11 +23,22 @@ function initializeGameBoard(){
 }
 
 function initializeSnake(){
-  gameboard[0][0].style.backgroundColor = "red";
-  gameboard[0][1].style.backgroundColor = "blue";
-  gameboard[0][2].style.backgroundColor = "blue";
-  gameboard[0][3].style.backgroundColor = "blue";
+  gameboard[9][9].style.backgroundColor = "red";
+  gameboard[9][10].style.backgroundColor = "blue";
+  gameboard[9][11].style.backgroundColor = "blue";
+  gameboard[9][12].style.backgroundColor = "blue";
 }
+
+function initializeFood(){
+gameboard[Math.floor((Math.random() * 20 ))][Math.floor((Math.random() * 20 ))].style.backgroundColor = "black";
+  
+}
+
+
+
+
+
+
 
 function initialize(){
   initializeGameBoard();
