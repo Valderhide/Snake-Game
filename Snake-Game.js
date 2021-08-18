@@ -2,7 +2,7 @@ const ROW_SIZE = 20;
 const COLUMN_SIZE = 20;
 const PIXEL_WIDTH = 20;
 var gameboard;
-var snake = [[9,9],[9,10],[9,11],[9,12]];
+const snake = [[9,9],[9,10],[9,11],[9,12]];
 initialize();
 
 
@@ -31,7 +31,7 @@ function initializeSnake(){
 
 function initializeFood(){
   var food = gameboard[Math.floor((Math.random() * 20 ))][Math.floor((Math.random() * 20 ))].style.backgroundColor = "black";
-  return (snake.includes(food)) ? generateRandom(min, max) : food;
+  return (snake.includes(food)) ? initializeFood : food;
 }
 
 
