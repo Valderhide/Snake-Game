@@ -10,27 +10,10 @@ function initialize(){
   initializeSnake();
   initializeFood();
 
-  
-  
-  document.onkeydown = function(e) {
-    switch (e.key) {
-        case 'ArrowLeft':
-            console.log ('left');
-            break;
-        case 'ArrowUp':
-            console.log ('up');
-            break;
-        case 'ArrowRight':
-            console.log ('right');
-            break;
-        case 'ArrowDown':
-            console.log ('down');
-            break;
-    }
-}
-  
-  
-function initializeGameBoard(){
+
+
+
+    function initializeGameBoard(){
   gameboard = new Array(ROW_SIZE);
   for(let row =0; row<ROW_SIZE; row++){
     gameboard[row] = new Array(COLUMN_SIZE);
@@ -88,6 +71,25 @@ function moveSnake(newSnakePosition){
     }
     gameboard[newSnakePosition[i][0]][newSnakePosition[i][1]].style.backgroundColor = pixelColor;
     snake = newSnakePosition;
+  }
+
+  document.onkeydown = function(e) {
+    switch (e.key) {
+        case 'ArrowLeft':
+          console.log('left');
+            break;
+        case 'ArrowUp':
+            console.log ('up');
+            break;
+        case 'ArrowRight':
+            console.log ('right');
+            break;
+        case 'ArrowDown':
+            console.log ('down');
+            break;
+
+
+    }
   }
 }
 }
