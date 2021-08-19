@@ -1,11 +1,35 @@
-const ROW_SIZE = 20;
-const COLUMN_SIZE = 20;
+const ROW_SIZE = 13;
+const COLUMN_SIZE = 13;
 const PIXEL_WIDTH = 20;
 var gameboard;
-const snake = [[9,9],[9,10],[9,11],[9,12]];
+var snake;
 initialize();
 
+function initialize(){
+  initializeGameBoard();
+  initializeSnake();
+  initializeFood();
 
+  
+  
+  document.onkeydown = function(e) {
+    switch (e.key) {
+        case 'ArrowLeft':
+            console.log ('left');
+            break;
+        case 'ArrowUp':
+            console.log ('up');
+            break;
+        case 'ArrowRight':
+            console.log ('right');
+            break;
+        case 'ArrowDown':
+            console.log ('down');
+            break;
+    }
+}
+  
+  
 function initializeGameBoard(){
   gameboard = new Array(ROW_SIZE);
   for(let row =0; row<ROW_SIZE; row++){
@@ -20,29 +44,50 @@ function initializeGameBoard(){
       gameboard[row][column] = div;
     }
   }
+
 }
 
+
 function initializeSnake(){
-  gameboard[9][9].style.backgroundColor = "red";
-  gameboard[9][10].style.backgroundColor = "blue";
-  gameboard[9][11].style.backgroundColor = "blue";
-  gameboard[9][12].style.backgroundColor = "blue";
+  let headX = Math.floor(ROW_SIZE / 2);  
+  let headY = Math.floor(COLUMN_SIZE / 2);
+  moveSnake([[headX,headY],[headX,headY+1],[headX,headY+2],[headX,headY+3]]);
 }
 
 function initializeFood(){
-  var food = gameboard[Math.floor((Math.random() * 20 ))][Math.floor((Math.random() * 20 ))].style.backgroundColor = "black";
-  return (snake.includes(food)) ? initializeFood : food;
+  let x, y;
+  do{
+    x = Math.floor(Math.random() * ROW_SIZE);
+    y = Math.floor(Math.random() * COLUMN_SIZE);
+  }
+  while(snakeIncludes([x,y]));
+
+  gameboard[x][y].style.backgroundColor = "black";
+}
+
+function snakeIncludes(position){
+  for (let i = 0; i < snake.length; i++ ){
+    if(snake[i][0] == position[0] && snake[i][1] == position[1]){
+      return true;
+    }
+  }
+
+  return false;
 }
 
 
 
-
-
-
-
-function initialize(){
-  initializeGameBoard();
-  initializeSnake();
-  initializeFood();
+function moveSnake(newSnakePosition){
+  for (let i = 0; i < newSnakePosition.length; i++ ){
+    let pixelColor;
+    if (i==0) {
+      pixelColor = "red";
+    }
+    else {
+      pixelColor = "blue";
+    }
+    gameboard[newSnakePosition[i][0]][newSnakePosition[i][1]].style.backgroundColor = pixelColor;
+    snake = newSnakePosition;
+  }
 }
-
+}
