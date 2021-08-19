@@ -1,5 +1,5 @@
-const ROW_SIZE = 13;
-const COLUMN_SIZE = 13;
+const ROW_SIZE = 20;
+const COLUMN_SIZE = 20;
 const PIXEL_WIDTH = 20;
 var gameboard;
 var snake;
@@ -9,6 +9,7 @@ function initialize(){
   initializeGameBoard();
   initializeSnake();
   initializeFood();
+}
 
 
 
@@ -25,10 +26,10 @@ function initialize(){
       div.style.left = column *PIXEL_WIDTH;
       div.style.top = row *PIXEL_WIDTH;
       gameboard[row][column] = div;
+      }
     }
-  }
 
-}
+  }
 
 
 function initializeSnake(){
@@ -73,23 +74,26 @@ function moveSnake(newSnakePosition){
     snake = newSnakePosition;
   }
 
+}
+
+
+
+
   document.onkeydown = function(e) {
     switch (e.key) {
-        case 'ArrowLeft':
-          console.log('left');
-            break;
         case 'ArrowUp':
-            console.log ('up');
-            break;
-        case 'ArrowRight':
-            console.log ('right');
+          console.log(snake[0]);
             break;
         case 'ArrowDown':
-            console.log ('down');
+            console.log ('Down')
+            break;
+        case 'ArrowLeft':
+            console.log ('Left');
+            break;
+        case 'ArrowRight':
+            console.log ('Right');
             break;
 
 
-    }
+     }
   }
-}
-}
