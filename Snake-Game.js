@@ -82,7 +82,7 @@ function moveSnake(newSnakePosition){
   document.onkeydown = function(e) {
     switch (e.key) {
         case 'ArrowUp':
-          console.log(snake[0]);
+          console.log((snake[0])[[0+1]]);
             break;
         case 'ArrowDown':
             console.log ('Down')
