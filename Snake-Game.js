@@ -3,6 +3,8 @@ const COLUMN_SIZE = 20;
 const PIXEL_WIDTH = 20;
 var gameboard;
 var snake;
+let headX = Math.floor(ROW_SIZE / 2);  
+let headY = Math.floor(COLUMN_SIZE / 2);
 initialize();
 
 function initialize(){
@@ -33,8 +35,6 @@ function initialize(){
 
 
 function initializeSnake(){
-  let headX = Math.floor(ROW_SIZE / 2);  
-  let headY = Math.floor(COLUMN_SIZE / 2);
   moveSnake([[headX,headY],[headX,headY+1],[headX,headY+2],[headX,headY+3]]);
 }
 
@@ -82,7 +82,8 @@ function moveSnake(newSnakePosition){
   document.onkeydown = function(e) {
     switch (e.key) {
         case 'ArrowUp':
-          moveSnake([headX - 1,headY]);
+          console.log(headX++);
+          moveSnake(newSnakePosition)
             break;
         case 'ArrowDown':
             console.log ('Down')
