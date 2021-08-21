@@ -62,6 +62,7 @@ function snakeIncludes(position){
 
 
 function moveSnake(newSnakePosition){
+  //#B6D7A8
   gameboard[headX][headY].style.backgroundColor = 'white'
   for (let i = 0; i < newSnakePosition.length; i++ ){
     let pixelColor;
