@@ -72,29 +72,26 @@ function moveSnake(newSnakePosition){
     }
     gameboard[newSnakePosition[i][0]][newSnakePosition[i][1]].style.backgroundColor = pixelColor;
     snake = newSnakePosition;
-  }
 
+
+    document.onkeydown = function(e) {
+      switch (e.key) {
+          case 'ArrowUp':
+            moveSnake([[headX--,headY]]);
+              break;
+          case 'ArrowDown':
+            moveSnake([[headX++,headY]]);
+              break;
+          case 'ArrowLeft':
+            moveSnake([[headX,headY--]]);
+              break;
+          case 'ArrowRight':
+            moveSnake([[headX,headY++]]);
+              break;
+  
+  
+       }
+    }
+
+  }
 }
-
-
-
-
-  document.onkeydown = function(e) {
-    switch (e.key) {
-        case 'ArrowUp':
-          console.log(headX++);
-          moveSnake(newSnakePosition)
-            break;
-        case 'ArrowDown':
-            console.log ('Down')
-            break;
-        case 'ArrowLeft':
-            console.log ('Left');
-            break;
-        case 'ArrowRight':
-            console.log ('Right');
-            break;
-
-
-     }
-  }
