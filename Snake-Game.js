@@ -77,8 +77,8 @@ function moveSnake(newSnakePosition){
   }
 
   function update() {
-    for (let i = snake.length - 3; i >= 0; i--){
-      snake[i+1] = {...snake[i]}
+    for (let i = newSnakePosition.length - 3; i >= 0; i--){
+      newSnakePosition[i+1] = {...newSnakePosition[i]}
     }
   }
 
