@@ -62,8 +62,7 @@ function snakeIncludes(position){
 
 
 function moveSnake(newSnakePosition){
-  //#B6D7A8
-  gameboard[headX][headY].style.backgroundColor = 'white'
+  //#B6D7A8 = grid color
   for (let i = 0; i < newSnakePosition.length; i++ ){
     let pixelColor;
     if (i==0) {
@@ -72,28 +71,34 @@ function moveSnake(newSnakePosition){
     else {
       pixelColor = "blue";
     }
+    gameboard[headX][headY].style.backgroundColor = 'white'
     gameboard[newSnakePosition[i][0]][newSnakePosition[i][1]].style.backgroundColor = pixelColor;
     snake = newSnakePosition;
+  }
 
-
-    document.onkeydown = function(e) {
-      switch (e.key) {
-          case 'ArrowUp':
-            moveSnake([[headX--,headY]]);
-              break;
-          case 'ArrowDown':
-            moveSnake([[headX++,headY]]);
-              break;
-          case 'ArrowLeft':
-            moveSnake([[headX,headY--]]);
-              break;
-          case 'ArrowRight':
-            moveSnake([[headX,headY++]]);
-              break;
-  
-  
-       }
+  function update() {
+    for (let i = snake.length - 3; i >= 0; i--){
+      snake[i+1] = {...snake[i]}
     }
+  }
 
+  document.onkeydown = function(e) {
+    switch (e.key) {
+        case 'ArrowUp':
+          moveSnake([[headX--,headY]]);
+          update();
+            break;
+        case 'ArrowDown':
+          moveSnake([[headX++,headY]]);
+            break;
+        case 'ArrowLeft':
+          moveSnake([[headX,headY--]]);
+            break;
+        case 'ArrowRight':
+          moveSnake([[headX,headY++]]);
+            break;
+
+
+     }
   }
 }
