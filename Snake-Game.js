@@ -43,6 +43,7 @@ function snakeGrowth(){
   if (gameboard[food.x][food.y] == gameboard[snake[0].x][snake[0].y]) {
   snake.push(snake);
   initializeFood();
+  drawFood(food);
   }
 }
 
