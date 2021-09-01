@@ -11,10 +11,12 @@ initialize();
 function initialize() {
   initializeGameBoard();
   initializeSnake();
-  initializeFood();
   drawBoard();
 }
 
+function(gameover){
+  //check if x and y are less <0 or >20. alert "Game Over"
+}
 
 function initializeGameBoard() {
   gameboard = new Array(ROW_SIZE);
@@ -32,20 +34,34 @@ function initializeGameBoard() {
   }
 }
 
-function drawBoard() {
-  initializeGameBoard();
-  drawFood(food);
-  drawSnake(snake);
-  snakeGrowth();
+function drawBoardSquare(position){
+  if (position)
+  gameboard[position.x][position.y].style.backgroundColor = "#B6D7A8";
+
 }
 
-function snakeGrowth(){
+function drawBoard(position) {
+  foodreposition(position);
+  if(food){
+    drawFood(food);
+  }
+  drawSnake(snake);
+  drawBoardSquare(position);
+}
+
+function snakeEatFood(){
   if (gameboard[food.x][food.y] == gameboard[snake[0].x][snake[0].y]) {
-  snake.push(snake);
+  return true;
+  }
+  return false
+}
+
+function foodreposition(position){
+  if (!position){
   initializeFood();
-  drawFood(food);
   }
 }
+
 
 function drawFood(food) {
   gameboard[food.x][food.y].style.backgroundColor = "black";
@@ -85,31 +101,36 @@ function snakeIncludes(position) {
 
 function moveSnake(newSnakePosition) {
   snake.unshift(newSnakePosition);
-  snake.pop();
+  if (snakeEatFood()===false){
+    var position = snake.pop();
+  return position;
+  }
+  return undefined;
 }
 
 document.onkeydown = function (e) {
   switch (e.key) {
     case 'ArrowUp':
       headX--;
-      moveSnake({ x: headX, y: headY });
-      drawBoard();
+      var position = moveSnake({ x: headX, y: headY });
+      drawBoard(position);
       break;
     case 'ArrowDown':
       headX++;
-      moveSnake({ x: headX, y: headY });
-      drawBoard();
+      var position = moveSnake({ x: headX, y: headY });
+      drawBoard(position);
       break;
     case 'ArrowLeft':
       headY--;
-      moveSnake({ x: headX, y: headY });
-      drawBoard();
+      var position = moveSnake({ x: headX, y: headY });
+      drawBoard(position);
       break;
     case 'ArrowRight':
-      headY++
-      moveSnake({ x: headX, y: headY });
-      drawBoard();
+      headY++;
+      var position = moveSnake({ x: headX, y: headY });
+      drawBoard(position);
       break;
   }
+
 
 }
