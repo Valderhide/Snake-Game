@@ -14,9 +14,6 @@ function initialize() {
   drawBoard();
 }
 
-function(gameover){
-  //check if x and y are less <0 or >20. alert "Game Over"
-}
 
 function initializeGameBoard() {
   gameboard = new Array(ROW_SIZE);
@@ -41,6 +38,7 @@ function drawBoardSquare(position){
 }
 
 function drawBoard(position) {
+  gameover(snake);
   foodreposition(position);
   if(food){
     drawFood(food);
@@ -130,7 +128,12 @@ document.onkeydown = function (e) {
       var position = moveSnake({ x: headX, y: headY });
       drawBoard(position);
       break;
+    }
   }
 
-
+  function gameover(snake){
+    if ([gameboard[snake[0].x]]<0 || [gameboard[snake[0].x]]>COLUMN_SIZE || [gameboard[snake[0].y]]<0 || [gameboard[snake[0].y]]>ROW_SIZE){
+      window.alert("Game Over");
+    }
+    //check if x and y are less <0 or >20. alert "Game Over"
 }
