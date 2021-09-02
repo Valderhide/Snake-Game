@@ -38,7 +38,6 @@ function drawBoardSquare(position){
 }
 
 function drawBoard(position) {
-  gameover(snake);
   foodreposition(position);
   if(food){
     drawFood(food);
@@ -111,28 +110,32 @@ document.onkeydown = function (e) {
     case 'ArrowUp':
       headX--;
       var position = moveSnake({ x: headX, y: headY });
+      gameover(snake);
       drawBoard(position);
       break;
     case 'ArrowDown':
       headX++;
       var position = moveSnake({ x: headX, y: headY });
+      gameover(snake);
       drawBoard(position);
       break;
     case 'ArrowLeft':
       headY--;
       var position = moveSnake({ x: headX, y: headY });
+      gameover(snake);
       drawBoard(position);
       break;
     case 'ArrowRight':
       headY++;
       var position = moveSnake({ x: headX, y: headY });
+      gameover(snake);
       drawBoard(position);
       break;
     }
   }
 
   function gameover(snake){
-    if ([gameboard[snake[0].x]]<0 || [gameboard[snake[0].x]]>COLUMN_SIZE || [gameboard[snake[0].y]]<0 || [gameboard[snake[0].y]]>ROW_SIZE){
+    if ([[snake[0].x]]<0 || [[snake[0].x]]>19 || [[snake[0].y]]<0 || [[snake[0].y]]>19){
       window.alert("Game Over");
     }
     //check if x and y are less <0 or >20. alert "Game Over"
