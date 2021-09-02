@@ -137,4 +137,9 @@ document.onkeydown = function (e) {
       {window.location.reload()};
     }
     
+    if([snake[0].x][snake[0].y] == [position.x][position.y]){
+      window.alert("Game Over");
+      {window.location.reload()};
+    }
+    
 }
