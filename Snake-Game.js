@@ -134,6 +134,7 @@ document.onkeydown = function (e) {
   function gameover(snake){
     if (snake[0].x<0 ||snake[0].x>19 || snake[0].y<0 || snake[0].y>19){
       window.alert("Game Over");
+      {window.location.reload()};
     }
-    //check if x and y are less <0 or >20. alert "Game Over"
+    
 }
