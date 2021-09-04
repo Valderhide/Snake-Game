@@ -96,8 +96,33 @@ function snakeIncludes(position) {
   return false;
 }
 
+function snakeOverlap() {
+  let x, y;
+  do {
+    console.log("TEST");
+    //window.alert("Game Over");
+    //{window.location.reload()};
+  }
+  while (snakeIncludes([x, y]));
+
+  [snake[0].x][snake[0].y] = { x, y };
+}
+
+function snakeIncludes(position) {
+  for (let i = 0; i < snake.length; i++) {
+    if (snake[i][1] == position[1] && snake[i][2] == position[2]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+
+
 function moveSnake(newSnakePosition) {
   snake.unshift(newSnakePosition);
+  snakeOverlap();
   gameover(snake);
   if (snakeEatFood()===false){
     var position = snake.pop();
@@ -136,10 +161,5 @@ document.onkeydown = function (e) {
       window.alert("Game Over");
       {window.location.reload()};
     }
-    
-    if([snake[0].x][snake[0].y] == [position.x][position.y]){
-      window.alert("Game Over");
-      {window.location.reload()};
-    }
-    
-}
+
+  }
