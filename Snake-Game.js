@@ -108,17 +108,6 @@ function snakeOverlap() {
   [snake[0].x][snake[0].y] = { x, y };
 }
 
-function snakeIncludes(position) {
-  for (let i = 0; i < snake.length; i++) {
-    if (snake[i][1] == position[1] && snake[i][2] == position[2]) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-
 
 function moveSnake(newSnakePosition) {
   snake.unshift(newSnakePosition);
