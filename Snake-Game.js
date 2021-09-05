@@ -81,37 +81,32 @@ function initializeFood() {
     x = Math.floor(Math.random() * ROW_SIZE);
     y = Math.floor(Math.random() * COLUMN_SIZE);
   }
-  while (snakeIncludes([x, y]));
+  while (snakeIncludes({x, y}));
 
   food = { x, y };
 }
 
-function snakeIncludes(position) {
+function snakeIncludes(position, omitHead) {
   for (let i = 0; i < snake.length; i++) {
-    if (snake[i][0] == position[0] && snake[i][1] == position[1]) {
+    if (snake[i].x == position.x && snake[i].y == position.y) {
       return true;
     }
   }
-
   return false;
 }
 
-function snakeOverlap() {
-  let x, y;
-  do {
-    console.log("TEST");
-    //window.alert("Game Over");
-    //{window.location.reload()};
+function omitHead(){
+  for (let i= 1; i < snake.length; i++){
+    if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
+      return true;
+    }
   }
-  while (snakeIncludes([x, y]));
-
-  [snake[0].x][snake[0].y] = { x, y };
+  return false;
 }
 
 
 function moveSnake(newSnakePosition) {
   snake.unshift(newSnakePosition);
-  snakeOverlap();
   gameover(snake);
   if (snakeEatFood()===false){
     var position = snake.pop();
@@ -146,9 +141,16 @@ document.onkeydown = function (e) {
   }
 
   function gameover(snake){
-    if (snake[0].x<0 ||snake[0].x>19 || snake[0].y<0 || snake[0].y>19){
+    if (snake[0].x<0 || snake[0].x>19 || snake[0].y<0 || snake[0].y>19){
+      window.alert("Game Over");
+      {window.location.reload()};
+    }
+    
+    for (let i= 1; i < snake.length; i++){
+      if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
       window.alert("Game Over");
       {window.location.reload()};
     }
 
+    }
   }
