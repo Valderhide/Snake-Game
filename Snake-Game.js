@@ -115,27 +115,45 @@ function moveSnake(newSnakePosition) {
   return undefined;
 }
 
+
+function snakeUp(){
+  headX--;
+  var position = moveSnake({ x: headX, y: headY });
+  drawBoard(position);
+}
+
+function snakeDown(){
+  headX++;
+  var position = moveSnake({ x: headX, y: headY });
+  drawBoard(position);
+}
+
+function snakeLeft(){
+  headY--;
+  var position = moveSnake({ x: headX, y: headY });
+  drawBoard(position);
+}
+
+function snakeRight(){
+  headY++;
+  var position = moveSnake({ x: headX, y: headY });
+  drawBoard(position);
+}
+
+
 document.onkeydown = function (e) {
   switch (e.key) {
     case 'ArrowUp':
-      headX--;
-      var position = moveSnake({ x: headX, y: headY });
-      drawBoard(position);
+      setInterval(snakeUp, 500);
       break;
     case 'ArrowDown':
-      headX++;
-      var position = moveSnake({ x: headX, y: headY });
-      drawBoard(position);
+      setInterval(snakeDown, 500);
       break;
     case 'ArrowLeft':
-      headY--;
-      var position = moveSnake({ x: headX, y: headY });
-      drawBoard(position);
+      setInterval(snakeLeft, 500);
       break;
     case 'ArrowRight':
-      headY++;
-      var position = moveSnake({ x: headX, y: headY });
-      drawBoard(position);
+      setInterval(snakeRight, 500);
       break;
     }
   }
