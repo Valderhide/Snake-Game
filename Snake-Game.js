@@ -140,20 +140,35 @@ function snakeRight(){
   drawBoard(position);
 }
 
-
 document.onkeydown = function (e) {
+  let Up = setInterval(snakeUp, 500);
+  let Left = setInterval(snakeLeft, 500);
+  let Down = setInterval(snakeDown, 500);
+  let Right = setInterval(snakeRight, 500);
   switch (e.key) {
     case 'ArrowUp':
-      setInterval(snakeUp, 500);
-      break;
-    case 'ArrowDown':
-      setInterval(snakeDown, 500);
+      clearInterval(Down);
+      clearInterval(Left);
+      clearInterval(Right);
+      Up;
       break;
     case 'ArrowLeft':
-      setInterval(snakeLeft, 500);
+      clearInterval(Up);
+      clearInterval(Down);
+      clearInterval(Right);
+      Left;
+      break;
+    case 'ArrowDown':
+      clearInterval(Up);
+      clearInterval(Left);
+      clearInterval(Right);
+      Down;
       break;
     case 'ArrowRight':
-      setInterval(snakeRight, 500);
+      clearInterval(Down);
+      clearInterval(Left);
+      clearInterval(Up);
+      Right;
       break;
     }
   }
