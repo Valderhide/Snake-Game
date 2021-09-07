@@ -151,25 +151,25 @@ document.onkeydown = function (e) {
       clearInterval(Left);
       clearInterval(Right);
       Up;
-      break;
+      return Up;
     case 'ArrowLeft':
       clearInterval(Up);
       clearInterval(Down);
       clearInterval(Right);
       Left;
-      break;
+      return Left;
     case 'ArrowDown':
       clearInterval(Up);
       clearInterval(Left);
       clearInterval(Right);
       Down;
-      break;
+      return Down;
     case 'ArrowRight':
       clearInterval(Down);
       clearInterval(Left);
       clearInterval(Up);
       Right;
-      break;
+      return Right;
     }
   }
 
