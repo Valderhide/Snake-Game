@@ -147,29 +147,29 @@ document.onkeydown = function (e) {
   let Right = setInterval(snakeRight, 500);
   switch (e.key) {
     case 'ArrowUp':
-      clearInterval(Down);
-      clearInterval(Left);
-      clearInterval(Right);
+      clearInterval(Down, 500);
+      clearInterval(Left, 500);
+      clearInterval(Right, 500);
       Up;
-      return Up;
+      break;
     case 'ArrowLeft':
-      clearInterval(Up);
-      clearInterval(Down);
-      clearInterval(Right);
+      clearInterval(Up, 500);
+      clearInterval(Down, 500);
+      clearInterval(Right, 500);
       Left;
-      return Left;
+      break;
     case 'ArrowDown':
-      clearInterval(Up);
-      clearInterval(Left);
-      clearInterval(Right);
+      clearInterval(Up, 500);
+      clearInterval(Left, 500);
+      clearInterval(Right, 500);
       Down;
-      return Down;
+      break;
     case 'ArrowRight':
-      clearInterval(Down);
-      clearInterval(Left);
-      clearInterval(Up);
+      clearInterval(Down, 500);
+      clearInterval(Left, 500);
+      clearInterval(Up, 500);
       Right;
-      return Right;
+      break;
     }
   }
 
