@@ -115,60 +115,33 @@ function moveSnake(newSnakePosition) {
   return undefined;
 }
 
-
-function snakeUp(){
-  headX--;
-  var position = moveSnake({ x: headX, y: headY });
-  drawBoard(position);
-}
-
-function snakeDown(){
-  headX++;
-  var position = moveSnake({ x: headX, y: headY });
-  drawBoard(position);
-}
-
-function snakeLeft(){
-  headY--;
-  var position = moveSnake({ x: headX, y: headY });
-  drawBoard(position);
-}
-
-function snakeRight(){
-  headY++;
-  var position = moveSnake({ x: headX, y: headY });
-  drawBoard(position);
-}
-
+/* 
+up = x--
+down = x++
+left = y--
+right = y++
+*/
 document.onkeydown = function (e) {
-  let Up = setInterval(snakeUp, 500);
-  let Left = setInterval(snakeLeft, 500);
-  let Down = setInterval(snakeDown, 500);
-  let Right = setInterval(snakeRight, 500);
+  function snakeMovement(){
+    var M = 
+    M;
+    var position = moveSnake({ x: headX, y: headY });
+    drawBoard(position);
+  }
+  
+  var snakeMove = setInterval(snakeMovement, 1000)
   switch (e.key) {
     case 'ArrowUp':
-      clearInterval(Down, 500);
-      clearInterval(Left, 500);
-      clearInterval(Right, 500);
-      Up;
-      break;
-    case 'ArrowLeft':
-      clearInterval(Up, 500);
-      clearInterval(Down, 500);
-      clearInterval(Right, 500);
-      Left;
+      var M = headX--;
       break;
     case 'ArrowDown':
-      clearInterval(Up, 500);
-      clearInterval(Left, 500);
-      clearInterval(Right, 500);
-      Down;
+      var M = headX++;
+      break;
+    case 'ArrowLeft':
+      var M = headY--;
       break;
     case 'ArrowRight':
-      clearInterval(Down, 500);
-      clearInterval(Left, 500);
-      clearInterval(Up, 500);
-      Right;
+      var M = headY++;
       break;
     }
   }
@@ -181,8 +154,8 @@ document.onkeydown = function (e) {
     
     for (let i= 1; i < snake.length; i++){
       if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
-      window.alert("Game Over");
-      {window.location.reload()};
+        window.alert("Game Over");
+        {window.location.reload()};
     }
 
     }
