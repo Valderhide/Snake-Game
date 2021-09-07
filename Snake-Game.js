@@ -121,6 +121,7 @@ down = x++
 left = y--
 right = y++
 */
+
 document.onkeydown = function (e) {
   function snakeMovement(){
     var M = 
@@ -128,22 +129,26 @@ document.onkeydown = function (e) {
     var position = moveSnake({ x: headX, y: headY });
     drawBoard(position);
   }
+  //var snakeMove = setInterval(snakeMovement, 1000)
   
-  var snakeMove = setInterval(snakeMovement, 1000)
   switch (e.key) {
     case 'ArrowUp':
       var M = headX--;
+      snakeMovement();
       break;
     case 'ArrowDown':
       var M = headX++;
+      snakeMovement();
       break;
     case 'ArrowLeft':
       var M = headY--;
+      snakeMovement();
       break;
     case 'ArrowRight':
       var M = headY++;
+      snakeMovement();
       break;
-    }
+      }
   }
 
   function gameover(snake){
@@ -156,7 +161,6 @@ document.onkeydown = function (e) {
       if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
         window.alert("Game Over");
         {window.location.reload()};
-    }
-
+      }
     }
   }
