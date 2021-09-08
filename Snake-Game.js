@@ -129,19 +129,24 @@ document.onkeydown = function (e) {
     var position = moveSnake({ x: headX, y: headY });
     drawBoard(position);
   }
-  var snakeMove = setInterval(snakeMovement, 1000)
+  //var snakeMove = setInterval(snakeMovement, 1000)
+  
   switch (e.key) {
     case 'ArrowUp':
       var M = headX--;
+      snakeMovement();
       break;
     case 'ArrowDown':
       var M = headX++;
+      snakeMovement();
       break;
     case 'ArrowLeft':
       var M = headY--;
+      snakeMovement();
       break;
     case 'ArrowRight':
       var M = headY++;
+      snakeMovement();
       break;
       }
   }
