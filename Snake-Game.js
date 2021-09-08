@@ -123,36 +123,31 @@ right = y++
 */
 
 document.onkeydown = function (e) {
+
   function snakeMovement(){
-    var M = 
     M;
     var position = moveSnake({ x: headX, y: headY });
     drawBoard(position);
   }
-  //var snakeMove = setInterval(snakeMovement, 1000)
-  
+  var snakeMove = setInterval(snakeMovement, 1000)
   switch (e.key) {
     case 'ArrowUp':
       var M = headX--;
-      snakeMovement();
       break;
     case 'ArrowDown':
       var M = headX++;
-      snakeMovement();
       break;
     case 'ArrowLeft':
       var M = headY--;
-      snakeMovement();
       break;
     case 'ArrowRight':
       var M = headY++;
-      snakeMovement();
       break;
       }
   }
 
   function gameover(snake){
-    if (snake[0].x<0 || snake[0].x>19 || snake[0].y<0 || snake[0].y>19){
+    /*if (snake[0].x<0 || snake[0].x>19 || snake[0].y<0 || snake[0].y>19){
       window.alert("Game Over");
       {window.location.reload()};
     }
@@ -162,5 +157,5 @@ document.onkeydown = function (e) {
         window.alert("Game Over");
         {window.location.reload()};
       }
-    }
+    }*/
   }
