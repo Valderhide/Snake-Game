@@ -1,19 +1,21 @@
 const ROW_SIZE = 20;
 const COLUMN_SIZE = 20;
 const PIXEL_WIDTH = 20;
-var gameboard;
+let gameboard;
 let snake;
 let food;
 let headX = Math.floor(ROW_SIZE / 2);
 let headY = Math.floor(COLUMN_SIZE / 2);
-initialize();
+let snakeDirection =
+  initialize();
+
+const snakeMove = setInterval(snakeMovement, 200)
 
 function initialize() {
   initializeGameBoard();
   initializeSnake();
   drawBoard();
 }
-
 
 function initializeGameBoard() {
   gameboard = new Array(ROW_SIZE);
@@ -31,31 +33,31 @@ function initializeGameBoard() {
   }
 }
 
-function drawBoardSquare(position){
+function drawBoardSquare(position) {
   if (position)
-  gameboard[position.x][position.y].style.backgroundColor = "#B6D7A8";
+    gameboard[position.x][position.y].style.backgroundColor = "#B6D7A8";
 
 }
 
 function drawBoard(position) {
   foodreposition(position);
-  if(food){
+  if (food) {
     drawFood(food);
   }
   drawSnake(snake);
   drawBoardSquare(position);
 }
 
-function snakeEatFood(){
+function snakeEatFood() {
   if (gameboard[food.x][food.y] == gameboard[snake[0].x][snake[0].y]) {
-  return true;
+    return true;
   }
   return false
 }
 
-function foodreposition(position){
-  if (!position){
-  initializeFood();
+function foodreposition(position) {
+  if (!position) {
+    initializeFood();
   }
 }
 
@@ -72,7 +74,7 @@ function drawSnake(snake) {
 }
 
 function initializeSnake() {
-  snake =[{ x: headX, y: headY }, { x: headX, y: headY + 1 }, { x: headX, y: headY + 2 }, { x: headX, y: headY + 3 }];
+  snake = [{ x: headX, y: headY }, { x: headX, y: headY + 1 }, { x: headX, y: headY + 2 }, { x: headX, y: headY + 3 }];
 }
 
 function initializeFood() {
@@ -81,7 +83,7 @@ function initializeFood() {
     x = Math.floor(Math.random() * ROW_SIZE);
     y = Math.floor(Math.random() * COLUMN_SIZE);
   }
-  while (snakeIncludes({x, y}));
+  while (snakeIncludes({ x, y }));
 
   food = { x, y };
 }
@@ -95,8 +97,8 @@ function snakeIncludes(position, omitHead) {
   return false;
 }
 
-function omitHead(){
-  for (let i= 1; i < snake.length; i++){
+function omitHead() {
+  for (let i = 1; i < snake.length; i++) {
     if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
       return true;
     }
@@ -108,9 +110,9 @@ function omitHead(){
 function moveSnake(newSnakePosition) {
   snake.unshift(newSnakePosition);
   gameover(snake);
-  if (snakeEatFood()===false){
-    var position = snake.pop();
-  return position;
+  if (snakeEatFood() === false) {
+    const position = snake.pop();
+    return position;
   }
   return undefined;
 }
@@ -122,45 +124,58 @@ left = y--
 right = y++
 */
 
-document.onkeydown = function (e) {
+function snakeMovement() {
+  switch (snakeDirection) {
+    case 'up':
+      headX--;
+      break;
+    case 'down':
+      headX++;
+      break;
+    case 'left':
+      headY--;
+      break;
+    case 'right':
+      headY++;
+      break;
+    default:
+  }
 
-  function snakeMovement(){
-    M;
-    var position = moveSnake({ x: headX, y: headY });
+  if (snakeDirection) {
+    const position = moveSnake({ x: headX, y: headY });
     drawBoard(position);
   }
-  //var snakeMove = setInterval(snakeMovement, 1000)
-  
+}
+
+document.onkeydown = function (e) {
   switch (e.key) {
     case 'ArrowUp':
-      var M = headX--;
-      snakeMovement();
+      snakeDirection = 'up';
       break;
     case 'ArrowDown':
-      var M = headX++;
-      snakeMovement();
+      snakeDirection = 'down';
       break;
     case 'ArrowLeft':
-      var M = headY--;
-      snakeMovement();
+      snakeDirection = 'left';
       break;
     case 'ArrowRight':
-      var M = headY++;
-      snakeMovement();
+      snakeDirection = 'right';
       break;
-      }
+  }
+}
+
+function gameover(snake) {
+  if (snake[0].x < COLUMN_SIZE - 20 || snake[0].x > COLUMN_SIZE - 1 || snake[0].y < ROW_SIZE - 20 || snake[0].y > ROW_SIZE - 1) {
+    clearInterval(snakeMove);
+    window.alert("Game Over");
+    { window.location.reload() };
   }
 
-  function gameover(snake){
-    /*if (snake[0].x<0 || snake[0].x>19 || snake[0].y<0 || snake[0].y>19){
+  for (let i = 1; i < snake.length; i++) {
+    if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
+      clearInterval(snakeMove);
       window.alert("Game Over");
-      {window.location.reload()};
+      { window.location.reload() };
     }
-    
-    for (let i= 1; i < snake.length; i++){
-      if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
-        window.alert("Game Over");
-        {window.location.reload()};
-      }
-    }*/
   }
+}
