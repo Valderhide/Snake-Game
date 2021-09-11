@@ -1,6 +1,6 @@
 h1{
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .pixel{ 
     background-color:#B6D7A8;
@@ -15,4 +15,19 @@ h1{
     margin: auto;
     width: 400px;
     height: 400px;
+}
+
+a{
+    font-size: 200%;
+    margin-top: 2%;
+    color: deeppink;
+}
+
+p{
+    text-align: center;
+}
+
+
+html{
+    background-color: black;
 }
