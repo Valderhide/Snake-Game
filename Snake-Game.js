@@ -6,7 +6,7 @@ let snake;
 let food;
 let headX = Math.floor(ROW_SIZE / 2);
 let headY = Math.floor(COLUMN_SIZE / 2);
-let snakeDirection =
+let snakeDirection;
   initialize();
 
 const snakeMove = setInterval(snakeMovement, 200)
@@ -165,7 +165,7 @@ document.onkeydown = function (e) {
 }
 
 function gameOver(snake) {
-  if (snake[0].x < COLUMN_SIZE - 20 || snake[0].x > COLUMN_SIZE - 1 || snake[0].y < ROW_SIZE - 20 || snake[0].y > ROW_SIZE - 1) {
+  if (snake[0].x < 0 || snake[0].x > COLUMN_SIZE - 1 || snake[0].y < 0 || snake[0].y > ROW_SIZE - 1) {
     clearInterval(snakeMove);
     window.alert("Game Over");
     { window.location.reload() };
