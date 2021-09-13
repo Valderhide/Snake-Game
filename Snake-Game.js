@@ -40,7 +40,7 @@ function drawBoardSquare(position) {
 }
 
 function drawBoard(position) {
-  foodreposition(position);
+  foodReposition(position);
   if (food) {
     drawFood(food);
   }
@@ -55,7 +55,7 @@ function snakeEatFood() {
   return false
 }
 
-function foodreposition(position) {
+function foodReposition(position) {
   if (!position) {
     initializeFood();
   }
@@ -109,7 +109,7 @@ function omitHead() {
 
 function moveSnake(newSnakePosition) {
   snake.unshift(newSnakePosition);
-  gameover(snake);
+  gameOver(snake);
   if (snakeEatFood() === false) {
     const position = snake.pop();
     return position;
@@ -164,7 +164,7 @@ document.onkeydown = function (e) {
   }
 }
 
-function gameover(snake) {
+function gameOver(snake) {
   if (snake[0].x < COLUMN_SIZE - 20 || snake[0].x > COLUMN_SIZE - 1 || snake[0].y < ROW_SIZE - 20 || snake[0].y > ROW_SIZE - 1) {
     clearInterval(snakeMove);
     window.alert("Game Over");
