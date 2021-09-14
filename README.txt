@@ -22,7 +22,7 @@ Should be executable through your browser of choice.
 
 
 ## Authors
-
+Myself
 Coaches of https://www.get-coding.ca/
 
 Shiwei and Esteban
