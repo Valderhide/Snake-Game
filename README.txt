@@ -23,9 +23,9 @@ Should be executable through your browser of choice.
 
 ## Authors
 
-Coaches of https://www.get-coding.ca/
-
-Shiwei and Esteban
+* Myself
+* Coaches of https://www.get-coding.ca/
+  Shiwei and Esteban
 
 ## Version History
 
