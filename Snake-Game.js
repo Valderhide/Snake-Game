@@ -7,6 +7,7 @@ let food;
 let headX = Math.floor(ROW_SIZE / 2);
 let headY = Math.floor(COLUMN_SIZE / 2);
 let snakeDirection;
+let score = 0
   initialize();
 
 const snakeMove = setInterval(snakeMovement, 200)
@@ -33,6 +34,12 @@ function initializeGameBoard() {
   }
 }
 
+function drawScore(){
+  const scoreBoard =document.getElementById("score")
+  scoreBoard.innerHTML = `Score: ${score}`;
+}
+
+
 function drawBoardSquare(position) {
   if (position)
     gameboard[position.x][position.y].style.backgroundColor = "#B6D7A8";
@@ -46,10 +53,12 @@ function drawBoard(position) {
   }
   drawSnake(snake);
   drawBoardSquare(position);
+  drawScore();
 }
 
 function snakeEatFood() {
   if (gameboard[food.x][food.y] == gameboard[snake[0].x][snake[0].y]) {
+    score++;
     return true;
   }
   return false

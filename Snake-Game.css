@@ -31,3 +31,9 @@ p{
 html{
     background-color: black;
 }
+
+#score{
+    text-align: center;
+    color: wheat;
+    font-size: 20px;
+}
