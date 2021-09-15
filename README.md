@@ -1,6 +1,6 @@
 # A Basic Snake Game:
 
-[https://valderhide.github.io/Snake-Game/](url){:target="_blank"}
+<a href="https://valderhide.github.io/Snake-Game/" target="_blank">Click Here to play</a>
 
 An introductory project made to learn coding.
 
