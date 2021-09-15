@@ -22,10 +22,17 @@ Should be executable through your browser of choice.
 
 
 ## Authors
+<<<<<<< HEAD
 
 * Myself
 * Coaches of https://www.get-coding.ca/
   Shiwei and Esteban
+=======
+Myself
+Coaches of https://www.get-coding.ca/
+
+Shiwei and Esteban
+>>>>>>> ec999588901ab723e619898ac34569e9adaf3491
 
 ## Version History
 
