@@ -83,7 +83,7 @@ function drawSnake(snake) {
 }
 
 function initializeSnake() {
-  snake = [{ x: headX, y: headY }, { x: headX, y: headY + 1 }, { x: headX, y: headY + 2 }, { x: headX, y: headY + 3 }];
+  snake = [{ x: headX, y: headY }];
 }
 
 function initializeFood() {
@@ -160,18 +160,22 @@ document.onkeydown = function (e) {
   switch (e.key) {
     case 'w':
     case 'W':
+      if(snakeDirection == 'down') {break}
       snakeDirection = 'up';
       break;
     case 's':
     case 'S':
+      if(snakeDirection == 'up') {break}
       snakeDirection = 'down';
       break;
     case 'a':
     case 'A':
+      if(snakeDirection == 'right') {break}
       snakeDirection = 'left';
       break;
     case 'd':
     case 'D':
+      if(snakeDirection == 'left') {break}
       snakeDirection = 'right';
       break;
   }
