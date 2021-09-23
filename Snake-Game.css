@@ -44,7 +44,7 @@ html{
 
 img.upArrow{
     display: block;
-    margin-top: 2vh;
+    margin-top: 15vh;
     margin-left: auto;
     margin-right: auto;
     transform: rotate(-90deg);
@@ -59,11 +59,11 @@ img.downArrow{
 
 img.leftArrow{
     display: inline-block;
-    margin-left: 37vw;
+    margin-left: 12vw;
     transform: rotate(180deg);
 }
 
 img.rightArrow{
     display: inline-block;
-    margin-left: 8vw;
+    margin-left: 23vw;
 }
