@@ -173,6 +173,33 @@ document.onkeydown = function (e) {
   }
 }
 
+document.getElementById('UP').addEventListener('touchstart', u);
+
+    function u(ev){
+        snakeDirection = 'up';
+    }
+
+
+document.getElementById('DOWN').addEventListener('touchstart', d);
+
+    function d(ev){
+        snakeDirection = 'down';
+    }
+
+
+document.getElementById('LEFT').addEventListener('touchstart', l);
+
+    function l(ev){
+        snakeDirection = 'left';
+    }
+
+
+document.getElementById('RIGHT').addEventListener('touchstart', r);
+
+    function r(ev){
+        snakeDirection = 'right';
+    }
+
 function gameOver(snake) {
   if (snake[0].x < 0 || snake[0].x > COLUMN_SIZE - 1 || snake[0].y < 0 || snake[0].y > ROW_SIZE - 1) {
     clearInterval(snakeMove);

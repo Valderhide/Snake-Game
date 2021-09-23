@@ -18,6 +18,8 @@ h1{
 }
 
 a{
+    display: block;
+    text-align: center;
     font-size: 200%;
     margin-top: 2%;
     color: deeppink;
@@ -25,6 +27,8 @@ a{
 
 p{
     text-align: center;
+    color: white;
+    font-size: 25px;
 }
 
 
@@ -43,4 +47,22 @@ img.upArrow{
     margin-left: auto;
     margin-right: auto;
     transform: rotate(-90deg);
+}
+
+img.downArrow{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(90deg);
+}
+
+img.leftArrow{
+    display: inline-block;
+    margin-left: 37vw;
+    transform: rotate(180deg);
+}
+
+img.rightArrow{
+    display: inline-block;
+    margin-left: 8vw;
 }
