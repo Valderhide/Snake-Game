@@ -58,12 +58,12 @@ img.downArrow{
 }
 
 img.leftArrow{
-    display: inline-block;
-    margin-left: 29vw;
+    display: inline;
+    margin-left: 30%;
     transform: rotate(180deg);
 }
 
 img.rightArrow{
-    display: inline-block;
-    margin-left: 13vw;
+    display: inline;
+    margin-left: 13%;
 }
