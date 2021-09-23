@@ -158,16 +158,20 @@ function snakeMovement() {
 
 document.onkeydown = function (e) {
   switch (e.key) {
-    case 'ArrowUp':
+    case 'w':
+    case 'W':
       snakeDirection = 'up';
       break;
-    case 'ArrowDown':
+    case 's':
+    case 'S':
       snakeDirection = 'down';
       break;
-    case 'ArrowLeft':
+    case 'a':
+    case 'A':
       snakeDirection = 'left';
       break;
-    case 'ArrowRight':
+    case 'd':
+    case 'D':
       snakeDirection = 'right';
       break;
   }
