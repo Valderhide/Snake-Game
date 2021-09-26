@@ -160,21 +160,25 @@ document.onkeydown = function (e) {
   switch (e.key) {
     case 'w':
     case 'W':
+    case 'ArrowUp':
       if(snakeDirection == 'down') {break}
       snakeDirection = 'up';
       break;
     case 's':
     case 'S':
+    case 'ArrowDown':
       if(snakeDirection == 'up') {break}
       snakeDirection = 'down';
       break;
     case 'a':
     case 'A':
+    case 'ArrowLeft':
       if(snakeDirection == 'right') {break}
       snakeDirection = 'left';
       break;
     case 'd':
     case 'D':
+    case 'ArrowRight':
       if(snakeDirection == 'left') {break}
       snakeDirection = 'right';
       break;

@@ -25,13 +25,6 @@ a{
     color: deeppink;
 }
 
-p{
-    text-align: center;
-    color: white;
-    font-size: 25px;
-}
-
-
 html{
     background-color: black;
 }
@@ -48,6 +41,12 @@ img.mobile{
 }
 
 @media (max-width: 1000px) {
+
+    p{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+    }
 
     img.upArrow {
     display: block;
@@ -66,13 +65,13 @@ img.mobile{
 
     img.leftArrow{
     display: inline;
-    margin-left: 30vw;
+    margin-left: 10vw;
     transform: rotate(180deg);
     }
 
     img.rightArrow{
     display: inline;
-    margin-left: 13vw;
+    margin-left: 28vw;
     }
 
 }
