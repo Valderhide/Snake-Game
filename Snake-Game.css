@@ -35,6 +35,12 @@ html{
     font-size: 20px;
 }
 
+#one{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
 
 img.mobile{
     display: none;
@@ -42,7 +48,11 @@ img.mobile{
 
 @media (max-width: 1000px) {
 
-    p{
+    #one{
+        display: none;
+    }
+
+    #two{
         text-align: center;
         color: white;
         font-size: 25px;
