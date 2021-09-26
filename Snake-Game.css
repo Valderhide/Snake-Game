@@ -42,28 +42,37 @@ html{
     font-size: 20px;
 }
 
-img.upArrow{
+
+img.mobile{
+    display: none;
+}
+
+@media (max-width: 1000px) {
+
+    img.upArrow {
     display: block;
     margin-top: 15vh;
     margin-left: auto;
     margin-right: auto;
     transform: rotate(-90deg);
-}
+    }
 
-img.downArrow{
+    img.downArrow{
     display: block;
     margin-left: auto;
     margin-right: auto;
     transform: rotate(90deg);
-}
+    }
 
-img.leftArrow{
+    img.leftArrow{
     display: inline;
     margin-left: 30vw;
     transform: rotate(180deg);
-}
+    }
 
-img.rightArrow{
+    img.rightArrow{
     display: inline;
     margin-left: 13vw;
+    }
+
 }
